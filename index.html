@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Inference-Aware Prompt Optimization for Aligning Black-Box Large Language Models</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Project page for IAPO (Inference-Aware Prompt Optimization) and PSST."
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+        color: #222;
+        background-color: #fafafa;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 3rem;
+        background: #fff;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.03);
+      }
+      h1 {
+        font-size: 2rem;
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.25rem;
+      }
+      .authors,
+      .affiliation {
+        margin: 0.25rem 0;
+        font-size: 0.98rem;
+      }
+      .authors {
+        font-weight: 500;
+      }
+      .affiliation {
+        color: #555;
+      }
+      #abstract p {
+        text-align: justify;
+      }
+      figure {
+        margin: 1.5rem 0 0;
+      }
+      figure img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.9rem;
+        color: #444;
+      }
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>
+          Inference-Aware Prompt Optimization for Aligning Black-Box Large
+          Language Models
+        </h1>
+        <p class="authors">
+          Saaduddin Mahmud · Mason Nakamura · Kyle H. Wray · Shlomo Zilberstein
+        </p>
+        <p class="affiliation">
+          Manning College of Information and Computer Sciences · University of
+          Massachusetts Amherst
+        </p>
+      </header>
+
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Prompt optimization methods have demonstrated significant effectiveness
+          in aligning black-box large language models (LLMs). In parallel,
+          inference scaling strategies such as Best-of-N Sampling and Majority
+          Voting have likewise been shown to improve alignment and performance
+          by trading additional computation for better output. However, existing
+          prompt optimization approaches are inference strategy agnostic; that
+          is, they optimize prompts without regard to the inference strategy.
+          This constitutes a significant methodological gap, as our empirical
+          and theoretical analysis reveals a strong interdependence between
+          these two paradigms. Moreover, we find that user preferences regarding
+          trade-offs among multiple objectives and inference budgets
+          substantially influence the choice of prompt and inference
+          configuration.
+        </p>
+        <p>
+          To address this gap, we introduce a unified framework named
+          <strong>IAPO</strong> (Inference-Aware Prompt Optimization) that
+          jointly optimizes the prompt and inference scale, while being aware of
+          the inference budget and different task objectives. We then develop a
+          fixed-budget training algorithm for IAPO, called
+          <strong>PSST</strong> (Prompt Scaling via Sequential Trimming), and
+          establish finite-budget guarantees on the error probability. Finally,
+          we evaluate the effectiveness of PSST on six tasks, including
+          multi-objective text generation and reasoning, and demonstrate the
+          critical role of incorporating inference-awareness in aligning
+          black-box LLMs using prompt optimization.
+        </p>
+      </section>
+
+      <section id="overview">
+        <h2>Overview Figure</h2>
+        <figure>
+          <!--
+            Drop your actual IAPO PDF figure into:
+              page/assets/iapo_figure.pdf
+            and keep the filename in the data attribute below, or update it to match.
+          -->
+          <object
+            data="assets/iapo_figure.pdf#view=FitH"
+            type="application/pdf"
+            width="100%"
+            height="600"
+          >
+            <p>
+              Your browser cannot display embedded PDFs. You can download the
+              figure
+              <a href="assets/iapo_figure.pdf">here</a>.
+            </p>
+          </object>
+          <figcaption>
+            <strong>Inference-agnostic vs. inference-aware prompt
+              optimization.</strong>
+            The left side illustrates standard prompt optimization, which treats
+            the inference strategy as fixed: a best prompt is selected during
+            training and then used at inference with a predetermined number of
+            samples, which can lead to misaligned outputs and high inference
+            cost for some queries. The right side shows our inference-aware
+            framework IAPO with the PSST algorithm, which conditions on user
+            context such as budget and preferences, jointly selects the prompt
+            and inference scale, and produces responses that better satisfy
+            objectives and budget. Project page, code, and appendix are
+            available at
+            <a href="https://yourname.github.io/psst-project"
+              >https://yourname.github.io/psst-project</a
+            >.
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>
